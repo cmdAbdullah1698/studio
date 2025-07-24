@@ -14,7 +14,7 @@ function SubmitButton() {
   const { pending } = useFormStatus();
   return (
     <Button type="submit" className="w-full" disabled={pending}>
-      {pending ? 'Submitting...' : 'Send Message'}
+      {pending ? 'submitting...' : 'send message'}
     </Button>
   );
 }
@@ -29,14 +29,14 @@ export default function ContactForm() {
     if (state.message) {
       if (state.success) {
         toast({
-          title: 'Success!',
+          title: 'success!',
           description: state.message,
         });
         formRef.current?.reset();
       } else if (state.errors) {
          toast({
            variant: 'destructive',
-           title: 'Error',
+           title: 'error',
            description: state.message,
          });
       }
@@ -46,28 +46,28 @@ export default function ContactForm() {
   return (
     <form ref={formRef} action={formAction} className="space-y-4 text-left">
       <div className="space-y-2">
-        <Label htmlFor="fullName">Full Name</Label>
+        <Label htmlFor="fullName">full name</Label>
         <Input id="fullName" name="fullName" placeholder="John Doe" required />
         {state.errors?.fullName && (
           <p className="text-sm font-medium text-destructive">{state.errors.fullName[0]}</p>
         )}
       </div>
       <div className="space-y-2">
-        <Label htmlFor="email">Email</Label>
+        <Label htmlFor="email">email</Label>
         <Input id="email" name="email" type="email" placeholder="john.doe@example.com" required />
         {state.errors?.email && (
             <p className="text-sm font-medium text-destructive">{state.errors.email[0]}</p>
         )}
       </div>
       <div className="space-y-2">
-        <Label htmlFor="phone">Phone Number (Optional)</Label>
+        <Label htmlFor="phone">phone number (optional)</Label>
         <Input id="phone" name="phone" type="tel" placeholder="+1 (555) 123-4567" />
          {state.errors?.phone && (
             <p className="text-sm font-medium text-destructive">{state.errors.phone[0]}</p>
         )}
       </div>
       <div className="space-y-2">
-        <Label htmlFor="message">Question / Message</Label>
+        <Label htmlFor="message">question / message</Label>
         <Textarea id="message" name="message" placeholder="How can we help you today?" required />
         {state.errors?.message && (
             <p className="text-sm font-medium text-destructive">{state.errors.message[0]}</p>

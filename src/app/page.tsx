@@ -63,7 +63,7 @@ const Header = () => (
           <Link
             key={link.href}
             href={link.href}
-            className="transition-colors hover:text-primary small-caps"
+            className="transition-colors hover:text-primary"
           >
             {link.label}
           </Link>
@@ -89,7 +89,7 @@ const Header = () => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="transition-colors hover:text-primary small-caps"
+                  className="transition-colors hover:text-primary"
                 >
                   {link.label}
                 </Link>
@@ -179,7 +179,7 @@ const testimonials = [
 
 export default function Home() {
   return (
-    <div className="flex min-h-dvh flex-col bg-background tracking-wide small-caps">
+    <div className="flex min-h-dvh flex-col bg-background tracking-wide">
       <Header />
       <main className="flex-1">
         {/* about us section */}
@@ -242,8 +242,8 @@ export default function Home() {
             <div className="mx-auto w-full max-w-4xl pt-12">
               <Tabs defaultValue="trainings" className="w-full">
                 <TabsList className="grid w-full grid-cols-2">
-                  <TabsTrigger value="trainings" className="rounded-md data-[state=inactive]:bg-secondary data-[state=inactive]:text-secondary-foreground hover:bg-primary hover:text-primary-foreground">trainings & consultation</TabsTrigger>
-                  <TabsTrigger value="marketing" className="rounded-md data-[state=inactive]:bg-secondary data-[state=inactive]:text-secondary-foreground hover:bg-primary hover:text-primary-foreground">digital marketing</TabsTrigger>
+                  <TabsTrigger value="trainings" className="rounded-md bg-blue-200 text-blue-800 border border-blue-800 hover:bg-blue-800 hover:text-blue-200">trainings & consultation</TabsTrigger>
+                  <TabsTrigger value="marketing" className="rounded-md bg-blue-200 text-blue-800 border border-blue-800 hover:bg-blue-800 hover:text-blue-200">digital marketing</TabsTrigger>
                 </TabsList>
                 <TabsContent value="trainings" className="mt-8">
                   <div className="grid gap-8 md:grid-cols-3">
