@@ -20,7 +20,7 @@ function SubmitButton() {
   );
 }
 
-const initialState: ContactFormState = { message: '', success: false };
+const initialState: ContactFormState = { message: '', success: false, errors: undefined };
 
 export default function ContactForm() {
   const [state, formAction] = useFormState(submitContactForm, initialState);
@@ -29,25 +29,25 @@ export default function ContactForm() {
 
   useEffect(() => {
     if (state.message) {
-      if (state.success) {
-        toast({
-            title: 'success!',
-            description: state.message,
-        });
-        formRef.current?.reset();
-      } else {
-        toast({
-            variant: 'destructive',
-            title: 'error',
-            description: state.message,
-        });
-      }
+        if (state.success) {
+            toast({
+                title: 'Success!',
+                description: state.message,
+            });
+            formRef.current?.reset();
+        } else {
+            toast({
+                variant: 'destructive',
+                title: 'Error',
+                description: state.message,
+            });
+        }
     }
   }, [state, toast]);
 
 
   return (
-    <form ref={formRef} action={formAction} className="space-y-3 text-left">
+    <form ref={formRef} action={formAction} className="space-y-1 text-left">
       <div className="space-y-1">
         <Label htmlFor="fullName" className="text-base">full name</Label>
         <Input id="fullName" name="fullName" placeholder="John Doe" required className="text-base h-9"/>
