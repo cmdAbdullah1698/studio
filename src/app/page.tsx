@@ -47,9 +47,9 @@ const Shard = ({
 );
 
 const navLinks = [
-  { href: "#about", label: "About Us" },
-  { href: "#services", label: "Services" },
-  { href: "#contact", label: "Contact" },
+  { href: "#about", label: "about us" },
+  { href: "#services", label: "services" },
+  { href: "#contact", label: "contact" },
 ];
 
 const Header = () => (
@@ -74,7 +74,7 @@ const Header = () => (
           <SheetTrigger asChild>
             <Button variant="ghost" size="icon">
               <Menu className="h-6 w-6" />
-              <span className="sr-only">Toggle Menu</span>
+              <span className="sr-only">toggle menu</span>
             </Button>
           </SheetTrigger>
           <SheetContent side="right">
@@ -104,74 +104,74 @@ const Header = () => (
 
 const trainingServices = [
   {
-    title: "Real Estate",
+    title: "real estate",
     icon: <Building2 className="h-8 w-8" />,
     description:
-      "Specialized marketing strategies and digital solutions to elevate your properties and reach.",
+      "specialized marketing strategies and digital solutions to elevate your properties and reach.",
   },
   {
-    title: "Education",
+    title: "education",
     icon: <GraduationCap className="h-8 w-8" />,
     description:
-      "Consultations and digital tools for educational institutions to enhance student engagement.",
+      "consultations and digital tools for educational institutions to enhance student engagement.",
   },
   {
-    title: "Career & Professional Growth",
+    title: "career & professional growth",
     icon: <Briefcase className="h-8 w-8" />,
     description:
-      "Personalized training and guidance to help you navigate your career path and achieve your goals.",
+      "personalized training and guidance to help you navigate your career path and achieve your goals.",
   },
 ];
 
 const marketingServices = [
   {
-    title: "SEO & Paid Ads",
+    title: "seo & paid ads",
     icon: <Search className="h-8 w-8" />,
     description:
-      "Boost your visibility and drive targeted traffic with our expert SEO and paid advertising campaigns.",
+      "boost your visibility and drive targeted traffic with our expert seo and paid advertising campaigns.",
   },
   {
-    title: "Social Media Management",
+    title: "social media management",
     icon: <Users className="h-8 w-8" />,
     description:
-      "Engage your audience and build your brand presence across all major social media platforms.",
+      "engage your audience and build your brand presence across all major social media platforms.",
   },
   {
-    title: "Branding & Creative",
+    title: "branding & creative",
     icon: <Palette className="h-8 w-8" />,
     description:
-      "Develop a compelling brand identity with our creative design and strategic branding services.",
+      "develop a compelling brand identity with our creative design and strategic branding services.",
   },
   {
-    title: "Website & Automation",
+    title: "website & automation",
     icon: <Code className="h-8 w-8" />,
     description:
-      "From stunning websites to workflow automation, we build digital solutions that drive efficiency.",
+      "from stunning websites to workflow automation, we build digital solutions that drive efficiency.",
   },
 ];
 
 const testimonials = [
   {
-    name: "Alex Johnson",
-    role: "Real Estate Agent",
+    name: "alex johnson",
+    role: "real estate agent",
     quote:
-      "The digital marketing strategy from thelinkingdots doubled my leads in just three months. Truly remarkable results!",
+      "the digital marketing strategy from thelinkingdots doubled my leads in just three months. truly remarkable results!",
     image: "https://placehold.co/100x100.png",
     aiHint: "professional portrait"
   },
   {
-    name: "Samantha Lee",
-    role: "Startup Founder",
+    name: "samantha lee",
+    role: "startup founder",
     quote:
-      "Their branding service gave my company the professional look it needed to attract investors. I couldn't be happier.",
+      "their branding service gave my company the professional look it needed to attract investors. i couldn't be happier.",
     image: "https://placehold.co/100x100.png",
     aiHint: "business woman"
   },
   {
-    name: "Michael Chen",
-    role: "University Administrator",
+    name: "michael chen",
+    role: "university administrator",
     quote:
-      "The consultation on digital solutions streamlined our admissions process, saving us countless hours.",
+      "the consultation on digital solutions streamlined our admissions process, saving us countless hours.",
     image: "https://placehold.co/100x100.png",
     aiHint: "educator man"
   },
@@ -182,7 +182,7 @@ export default function Home() {
     <div className="flex min-h-dvh flex-col bg-background tracking-wide">
       <Header />
       <main className="flex-1">
-        {/* About Us Section */}
+        {/* about us section */}
         <section
           id="about"
           className="relative w-full pt-24 pb-12 md:pt-32 md:pb-24 lg:pt-40 lg:pb-32 overflow-hidden"
@@ -194,30 +194,30 @@ export default function Home() {
             <div className="grid gap-8 md:grid-cols-2 md:gap-16">
               <div className="flex flex-col justify-center space-y-4">
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none text-primary">
-                  Linking The Dots To Your Digital Success
+                  linking the dots to your digital success
                 </h1>
                 <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                  We are a collective of strategists, creatives, and innovators dedicated to providing transformative digital marketing, solutions, and training. Our mission is to connect your vision with its audience.
+                  we are a collective of strategists, creatives, and innovators dedicated to providing transformative digital marketing, solutions, and training. our mission is to connect your vision with its audience.
                 </p>
               </div>
               <div className="flex items-center justify-center">
                  <Card className="w-full max-w-md bg-card/70 backdrop-blur-sm">
                     <CardHeader>
-                      <CardTitle className="text-2xl">Our Founder's Vision</CardTitle>
+                      <CardTitle className="text-2xl">our founder's vision</CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-4">
                       <div className="flex items-center gap-4">
                         <Avatar className="h-16 w-16">
                           <AvatarImage src="https://placehold.co/150x150.png" alt="Founder" data-ai-hint="business founder" />
-                          <AvatarFallback>JD</AvatarFallback>
+                          <AvatarFallback>jd</AvatarFallback>
                         </Avatar>
                         <div>
-                          <h3 className="font-bold">Jane Doe</h3>
-                          <p className="text-sm text-muted-foreground">Founder & Lead Strategist</p>
+                          <h3 className="font-bold">jane doe</h3>
+                          <p className="text-sm text-muted-foreground">founder & lead strategist</p>
                         </div>
                       </div>
                       <p className="text-muted-foreground">
-                        "I started thelinkingdots to demystify the digital world for businesses and individuals alike. We believe in building connections—between brands and customers, skills and opportunities, problems and solutions."
+                        "i started thelinkingdots to demystify the digital world for businesses and individuals alike. we believe in building connections—between brands and customers, skills and opportunities, problems and solutions."
                       </p>
                     </CardContent>
                   </Card>
@@ -226,7 +226,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Services Section */}
+        {/* services section */}
         <section id="services" className="relative w-full py-12 md:py-24 lg:py-32 bg-muted/50 overflow-hidden">
           <Shard className="top-1/4 left-0 w-1/2 h-1/2 transform -translate-x-1/3 rotate-12" colorClass="fill-primary" />
           <Shard className="bottom-1/4 right-0 w-1/4 h-1/4 transform translate-x-1/3 -rotate-12" colorClass="fill-accent" />
@@ -234,16 +234,16 @@ export default function Home() {
           <Shard className="bottom-0 left-0 w-1/4 h-1/4 transform -translate-x-1/4 translate-y-1/4 -rotate-45" colorClass="fill-destructive" />
           <div className="container mx-auto px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Our Expertise</h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">our expertise</h2>
               <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                We provide a comprehensive suite of services designed to empower your brand and career.
+                we provide a comprehensive suite of services designed to empower your brand and career.
               </p>
             </div>
             <div className="mx-auto w-full max-w-4xl pt-12">
               <Tabs defaultValue="trainings" className="w-full">
                 <TabsList className="grid w-full grid-cols-2">
-                  <TabsTrigger value="trainings">Trainings & Consultation</TabsTrigger>
-                  <TabsTrigger value="marketing">Digital Marketing</TabsTrigger>
+                  <TabsTrigger value="trainings" className="data-[state=inactive]:bg-background data-[state=inactive]:border">trainings & consultation</TabsTrigger>
+                  <TabsTrigger value="marketing" className="data-[state=inactive]:bg-background data-[state=inactive]:border">digital marketing</TabsTrigger>
                 </TabsList>
                 <TabsContent value="trainings" className="mt-8">
                   <div className="grid gap-8 md:grid-cols-3">
@@ -280,10 +280,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Testimonials Section */}
+        {/* testimonials section */}
         <section id="testimonials" className="w-full py-12 md:py-24 lg:py-32">
           <div className="container mx-auto px-4 md:px-6">
-            <h2 className="text-3xl font-bold tracking-tighter text-center sm:text-5xl mb-12">What Our Clients Say</h2>
+            <h2 className="text-3xl font-bold tracking-tighter text-center sm:text-5xl mb-12">what our clients say</h2>
             <Carousel
               opts={{ align: "start", loop: true, }}
               className="w-full max-w-4xl mx-auto"
@@ -321,16 +321,16 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Contact Section */}
+        {/* contact section */}
         <section id="contact" className="relative w-full py-12 md:py-24 lg:py-32 bg-muted/50 overflow-hidden">
           <Shard className="top-0 left-0 w-1/2 h-1/2 transform -translate-x-1/4 -translate-y-1/4" colorClass="fill-primary" />
           <Shard className="bottom-0 right-0 w-2/3 h-2/3 transform translate-x-1/4 translate-y-1/4 rotate-45" colorClass="fill-accent" />
           <Shard className="top-1/3 right-1/4 w-1/3 h-1/3 transform translate-x-1/3 -translate-y-1/3 rotate-15" colorClass="fill-secondary" />
           <div className="container relative mx-auto grid items-center justify-center gap-4 px-4 text-center md:px-6">
             <div className="space-y-3">
-              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Get In Touch</h2>
+              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">get in touch</h2>
               <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Have a question or want to work together? Drop us a line.
+                have a question or want to work together? drop us a line.
               </p>
             </div>
             <div className="mx-auto w-full max-w-sm space-y-2">
@@ -342,11 +342,11 @@ export default function Home() {
 
       <footer className="w-full py-6 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 md:px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm">&copy; {new Date().getFullYear()} thelinkingdots. All rights reserved.</p>
+          <p className="text-sm">&copy; {new Date().getFullYear()} thelinkingdots. all rights reserved.</p>
           <div className="flex gap-4">
-            <Link href="#" aria-label="Facebook"><Facebook className="h-5 w-5 hover:opacity-80 transition-opacity" /></Link>
-            <Link href="#" aria-label="Instagram"><Instagram className="h-5 w-5 hover:opacity-80 transition-opacity" /></Link>
-            <Link href="#" aria-label="LinkedIn"><Linkedin className="h-5 w-5 hover:opacity-80 transition-opacity" /></Link>
+            <Link href="#" aria-label="facebook"><Facebook className="h-5 w-5 hover:opacity-80 transition-opacity" /></Link>
+            <Link href="#" aria-label="instagram"><Instagram className="h-5 w-5 hover:opacity-80 transition-opacity" /></Link>
+            <Link href="#" aria-label="linkedin"><Linkedin className="h-5 w-5 hover:opacity-80 transition-opacity" /></Link>
           </div>
         </div>
       </footer>
