@@ -63,7 +63,7 @@ const Header = () => (
           <Link
             key={link.href}
             href={link.href}
-            className="transition-colors hover:text-primary"
+            className="transition-colors hover:text-primary small-caps"
           >
             {link.label}
           </Link>
@@ -89,7 +89,7 @@ const Header = () => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="transition-colors hover:text-primary"
+                  className="transition-colors hover:text-primary small-caps"
                 >
                   {link.label}
                 </Link>
@@ -179,7 +179,7 @@ const testimonials = [
 
 export default function Home() {
   return (
-    <div className="flex min-h-dvh flex-col bg-background tracking-wide">
+    <div className="flex min-h-dvh flex-col bg-background tracking-wide small-caps">
       <Header />
       <main className="flex-1">
         {/* about us section */}
@@ -228,10 +228,10 @@ export default function Home() {
 
         {/* services section */}
         <section id="services" className="relative w-full py-12 md:py-24 lg:py-32 bg-muted/50 overflow-hidden">
-          <Shard className="top-1/4 left-0 w-1/2 h-1/2 transform -translate-x-1/3 rotate-12" colorClass="fill-primary" />
-          <Shard className="bottom-1/4 right-0 w-1/4 h-1/4 transform translate-x-1/3 -rotate-12" colorClass="fill-accent" />
-          <Shard className="top-0 right-0 w-1/3 h-1/3 transform translate-x-1/4 -translate-y-1/4 rotate-90" colorClass="fill-secondary" />
-          <Shard className="bottom-0 left-0 w-1/4 h-1/4 transform -translate-x-1/4 translate-y-1/4 -rotate-45" colorClass="fill-destructive" />
+          <Shard className="top-1/4 left-0 w-1/2 h-1/2 transform -translate-x-1/3 rotate-12" colorClass="fill-blue-400" />
+          <Shard className="bottom-1/4 right-0 w-1/4 h-1/4 transform translate-x-1/3 -rotate-12" colorClass="fill-yellow-400" />
+          <Shard className="top-0 right-0 w-1/3 h-1/3 transform translate-x-1/4 -translate-y-1/4 rotate-90" colorClass="fill-blue-200" />
+          <Shard className="bottom-0 left-0 w-1/4 h-1/4 transform -translate-x-1/4 translate-y-1/4 -rotate-45" colorClass="fill-red-400" />
           <div className="container mx-auto px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">our expertise</h2>
@@ -242,8 +242,8 @@ export default function Home() {
             <div className="mx-auto w-full max-w-4xl pt-12">
               <Tabs defaultValue="trainings" className="w-full">
                 <TabsList className="grid w-full grid-cols-2">
-                  <TabsTrigger value="trainings" className="data-[state=inactive]:bg-background data-[state=inactive]:border">trainings & consultation</TabsTrigger>
-                  <TabsTrigger value="marketing" className="data-[state=inactive]:bg-background data-[state=inactive]:border">digital marketing</TabsTrigger>
+                  <TabsTrigger value="trainings" className="rounded-md data-[state=inactive]:bg-secondary data-[state=inactive]:text-secondary-foreground hover:bg-primary hover:text-primary-foreground">trainings & consultation</TabsTrigger>
+                  <TabsTrigger value="marketing" className="rounded-md data-[state=inactive]:bg-secondary data-[state=inactive]:text-secondary-foreground hover:bg-primary hover:text-primary-foreground">digital marketing</TabsTrigger>
                 </TabsList>
                 <TabsContent value="trainings" className="mt-8">
                   <div className="grid gap-8 md:grid-cols-3">
@@ -323,9 +323,9 @@ export default function Home() {
 
         {/* contact section */}
         <section id="contact" className="relative w-full py-12 md:py-24 lg:py-32 bg-muted/50 overflow-hidden">
-          <Shard className="top-0 left-0 w-1/2 h-1/2 transform -translate-x-1/4 -translate-y-1/4" colorClass="fill-primary" />
-          <Shard className="bottom-0 right-0 w-2/3 h-2/3 transform translate-x-1/4 translate-y-1/4 rotate-45" colorClass="fill-accent" />
-          <Shard className="top-1/3 right-1/4 w-1/3 h-1/3 transform translate-x-1/3 -translate-y-1/3 rotate-15" colorClass="fill-secondary" />
+          <Shard className="top-0 left-0 w-1/2 h-1/2 transform -translate-x-1/4 -translate-y-1/4" colorClass="fill-blue-400" />
+          <Shard className="bottom-0 right-0 w-2/3 h-2/3 transform translate-x-1/4 translate-y-1/4 rotate-45" colorClass="fill-yellow-400" />
+          <Shard className="top-1/3 right-1/4 w-1/3 h-1/3 transform translate-x-1/3 -translate-y-1/3 rotate-15" colorClass="fill-blue-200" />
           <div className="container relative mx-auto grid items-center justify-center gap-4 px-4 text-center md:px-6">
             <div className="space-y-3">
               <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">get in touch</h2>
