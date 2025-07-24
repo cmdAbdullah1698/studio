@@ -225,7 +225,7 @@ export default function Home() {
               </div>
               <div className="flex items-center justify-center">
                  <Image 
-                    src="https://placehold.co/600x400.png"
+                    src="https://images.unsplash.com/photo-1644088379091-d574269d422f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjb25uZWN0aW9uc3xlbnwwfHx8fDE3NTMzNzEzODF8MA&ixlib=rb-4.1.0&q=80&w=1080"
                     alt="digital marketing team collaboration"
                     width={600}
                     height={400}
@@ -243,7 +243,7 @@ export default function Home() {
              <div className="grid gap-12 md:grid-cols-2 items-center">
                 <div className="flex items-center justify-center">
                    <Image 
-                      src="https://placehold.co/550x550.png"
+                      src="https://images.unsplash.com/photo-1513682121497-80211f36a7d3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjb25uZWN0aW5nJTIwcGVvcGxlfGVufDB8fHx8MTc1MzM3MTA3Nnww&ixlib=rb-4.1.0&q=80&w=1080"
                       alt="founder of thelinkingdots"
                       width={550}
                       height={550}
@@ -362,7 +362,7 @@ export default function Home() {
             </div>
             <div className="mx-auto w-full max-w-lg space-y-4">
               <Card>
-                <CardContent className="p-8">
+                <CardContent className="p-6">
                   <ContactForm />
                 </CardContent>
               </Card>
