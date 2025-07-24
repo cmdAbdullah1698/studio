@@ -1,3 +1,4 @@
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -212,7 +213,7 @@ export default function Home() {
             <div className="grid gap-12 md:grid-cols-2 items-center">
               <div className="flex flex-col justify-center space-y-6">
                 <h1 className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl">
-                  linking the dots to your digital success
+                  we link. you grow.
                 </h1>
                 <p className="max-w-[600px] text-muted-foreground md:text-xl">
                   we are a collective of strategists, creatives, and innovators dedicated to providing transformative digital marketing, solutions, and training.
@@ -387,3 +388,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
