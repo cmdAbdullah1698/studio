@@ -5,7 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = {
-  title: 'thelinkingdots - digital marketing & solutions',
+  title: 'thelinkingdots',
   description: 'we are a collective of strategists, creatives, and innovators dedicated to providing transformative digital marketing, solutions, and training.',
 };
 
