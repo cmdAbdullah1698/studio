@@ -53,9 +53,9 @@ const navLinks = [
 ];
 
 const Header = () => (
-  <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm small-caps uppercase">
+  <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm">
     <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
-      <Link href="/" className="text-xl font-bold tracking-wider text-primary">
+      <Link href="/" className="text-xl font-bold tracking-wider text-black">
         thelinkingdots
       </Link>
       <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
@@ -81,7 +81,7 @@ const Header = () => (
             <nav className="grid gap-6 text-lg font-medium mt-8">
               <Link
                 href="/"
-                className="text-xl font-bold tracking-wider text-primary small-caps uppercase"
+                className="text-xl font-bold tracking-wider text-black"
               >
                 thelinkingdots
               </Link>
@@ -89,7 +89,7 @@ const Header = () => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="transition-colors hover:text-primary small-caps uppercase"
+                  className="transition-colors hover:text-primary"
                 >
                   {link.label}
                 </Link>
@@ -179,7 +179,7 @@ const testimonials = [
 
 export default function Home() {
   return (
-    <div className="flex min-h-dvh flex-col bg-background small-caps uppercase tracking-wide">
+    <div className="flex min-h-dvh flex-col bg-background tracking-wide">
       <Header />
       <main className="flex-1">
         {/* About Us Section */}
@@ -189,6 +189,7 @@ export default function Home() {
         >
           <Shard className="top-0 left-0 w-1/3 h-1/3 transform -translate-x-1/4 -translate-y-1/4" colorClass="fill-primary" />
           <Shard className="bottom-0 right-0 w-1/2 h-1/2 transform translate-x-1/4 translate-y-1/4 rotate-45" colorClass="fill-secondary" />
+          <Shard className="top-1/2 left-1/2 w-1/4 h-1/4 transform -translate-x-1/2 -translate-y-1/2 rotate-12" colorClass="fill-accent" />
           <div className="container mx-auto px-4 md:px-6">
             <div className="grid gap-8 md:grid-cols-2 md:gap-16">
               <div className="flex flex-col justify-center space-y-4">
@@ -229,6 +230,8 @@ export default function Home() {
         <section id="services" className="relative w-full py-12 md:py-24 lg:py-32 bg-muted/50 overflow-hidden">
           <Shard className="top-1/4 left-0 w-1/2 h-1/2 transform -translate-x-1/3 rotate-12" colorClass="fill-primary" />
           <Shard className="bottom-1/4 right-0 w-1/4 h-1/4 transform translate-x-1/3 -rotate-12" colorClass="fill-accent" />
+          <Shard className="top-0 right-0 w-1/3 h-1/3 transform translate-x-1/4 -translate-y-1/4 rotate-90" colorClass="fill-secondary" />
+          <Shard className="bottom-0 left-0 w-1/4 h-1/4 transform -translate-x-1/4 translate-y-1/4 -rotate-45" colorClass="fill-destructive" />
           <div className="container mx-auto px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Our Expertise</h2>
@@ -322,6 +325,7 @@ export default function Home() {
         <section id="contact" className="relative w-full py-12 md:py-24 lg:py-32 bg-muted/50 overflow-hidden">
           <Shard className="top-0 left-0 w-1/2 h-1/2 transform -translate-x-1/4 -translate-y-1/4" colorClass="fill-primary" />
           <Shard className="bottom-0 right-0 w-2/3 h-2/3 transform translate-x-1/4 translate-y-1/4 rotate-45" colorClass="fill-accent" />
+          <Shard className="top-1/3 right-1/4 w-1/3 h-1/3 transform translate-x-1/3 -translate-y-1/3 rotate-15" colorClass="fill-secondary" />
           <div className="container relative mx-auto grid items-center justify-center gap-4 px-4 text-center md:px-6">
             <div className="space-y-3">
               <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Get In Touch</h2>
@@ -338,7 +342,7 @@ export default function Home() {
 
       <footer className="w-full py-6 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 md:px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm small-caps uppercase">&copy; {new Date().getFullYear()} thelinkingdots. All rights reserved.</p>
+          <p className="text-sm">&copy; {new Date().getFullYear()} thelinkingdots. All rights reserved.</p>
           <div className="flex gap-4">
             <Link href="#" aria-label="Facebook"><Facebook className="h-5 w-5 hover:opacity-80 transition-opacity" /></Link>
             <Link href="#" aria-label="Instagram"><Instagram className="h-5 w-5 hover:opacity-80 transition-opacity" /></Link>
