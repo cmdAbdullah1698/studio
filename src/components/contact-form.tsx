@@ -20,28 +20,29 @@ function SubmitButton() {
 }
 
 export default function ContactForm() {
-  const initialState: ContactFormState = { message: '', success: false };
+  const initialState: ContactFormState = { message: '', success: false, errors: undefined };
   const [state, formAction] = useFormState(submitContactForm, initialState);
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
     if (state.message) {
-      if (state.success) {
-        toast({
-          title: 'success!',
-          description: state.message,
-        });
-        formRef.current?.reset();
-      } else if (state.errors) {
-         toast({
-           variant: 'destructive',
-           title: 'error',
-           description: state.message,
-         });
-      }
+        if (state.success) {
+            toast({
+                title: 'Success!',
+                description: state.message,
+            });
+            formRef.current?.reset();
+        } else if (state.errors) {
+            toast({
+                variant: 'destructive',
+                title: 'Error',
+                description: state.message,
+            });
+        }
     }
-  }, [state, toast]);
+}, [state]);
+
 
   return (
     <form ref={formRef} action={formAction} className="space-y-4 text-left">
