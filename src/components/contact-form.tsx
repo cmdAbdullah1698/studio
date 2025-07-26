@@ -28,55 +28,57 @@ export default function ContactForm() {
   const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
-    if (state.message) {
-        if (state.success) {
-            toast({
-                title: 'Success!',
-                description: state.message,
-            });
-            formRef.current?.reset();
-        } else {
-            toast({
-                variant: 'destructive',
-                title: 'Error',
-                description: state.message,
-            });
-        }
+    if (!state.message) return;
+
+    if (state.success) {
+        toast({
+            title: 'Success!',
+            description: state.message,
+        });
+        formRef.current?.reset();
+    } else {
+        toast({
+            variant: 'destructive',
+            title: 'Error',
+            description: state.message,
+        });
     }
   }, [state, toast]);
 
 
   return (
-    <form ref={formRef} action={formAction} className="space-y-1 text-left">
+    <form ref={formRef} action={formAction} className="space-y-2 text-left">
       <div className="space-y-1">
         <Label htmlFor="fullName" className="text-base">full name</Label>
-        <Input id="fullName" name="fullName" placeholder="John Doe" required className="text-base h-9"/>
+        <Input id="fullName" name="fullName" placeholder="John Doe" required className="text-base h-11"/>
         {state.errors?.fullName && (
           <p className="text-sm font-medium text-destructive">{state.errors.fullName[0]}</p>
         )}
       </div>
       <div className="space-y-1">
         <Label htmlFor="email" className="text-base">email</Label>
-        <Input id="email" name="email" type="email" placeholder="john.doe@example.com" required className="text-base h-9"/>
+        <Input id="email" name="email" type="email" placeholder="john.doe@example.com" required className="text-base h-11"/>
         {state.errors?.email && (
             <p className="text-sm font-medium text-destructive">{state.errors.email[0]}</p>
         )}
       </div>
       <div className="space-y-1">
         <Label htmlFor="phone" className="text-base">phone number (optional)</Label>
-        <Input id="phone" name="phone" type="tel" placeholder="+1 (555) 123-4567" className="text-base h-9"/>
+        <Input id="phone" name="phone" type="tel" placeholder="+1 (555) 123-4567" className="text-base h-11"/>
          {state.errors?.phone && (
             <p className="text-sm font-medium text-destructive">{state.errors.phone[0]}</p>
         )}
       </div>
       <div className="space-y-1">
         <Label htmlFor="message" className="text-base">question / message</Label>
-        <Textarea id="message" name="message" placeholder="How can we help you today?" required rows={3} className="text-base"/>
+        <Textarea id="message" name="message" placeholder="How can we help you today?" required rows={4} className="text-base"/>
         {state.errors?.message && (
             <p className="text-sm font-medium text-destructive">{state.errors.message[0]}</p>
         )}
       </div>
-      <SubmitButton />
+       <div className="pt-2">
+         <SubmitButton />
+      </div>
     </form>
   );
 }
