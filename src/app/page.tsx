@@ -27,12 +27,12 @@ export default function Home() {
           </div>
           <div className="flex items-center justify-center">
             <Image
-              src="https://images.unsplash.com/photo-1644088379091-d574269d422f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjb25uZWN0aW9uc3xlbnwwfHx8fDE3NTMzNzEzODF8MA&ixlib=rb-4.1.0&q=80&w=1080"
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjb25uZWN0aW9ucyUyMGdyb3d0aHxlbnwwfHx8fDE3NTM3NTU0NTZ8MA&ixlib=rb-4.1.0&q=80&w=1080"
               alt="digital marketing team collaboration"
               width={600}
               height={400}
               className="rounded-xl shadow-2xl"
-              data-ai-hint="team collaboration"
+              data-ai-hint="connections growth"
             />
           </div>
         </div>
