@@ -39,12 +39,12 @@ export default function AboutPage() {
                     </div>
                     <div className="relative min-h-[300px] md:min-h-0">
                          <Image
-                            src="https://images.unsplash.com/photo-1712297224078-21bb0b79c070?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxOXx8ZW1wb3dlcmluZyUyMG1pbmRzfGVufDB8fHx8MTc1MzU2MDAzMnww&ixlib=rb-4.1.0&q=80&w=1080"
-                            alt="Our Team"
+                            src="https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwaW5ub3ZhdGlvbnxlbnwwfHx8fDE3NTM1NjAxMDh8MA&ixlib=rb-4.1.0&q=80&w=1080"
+                            alt="Digital Innovation"
                             layout="fill"
                             objectFit="cover"
                             className="grayscale hover:grayscale-0 transition-all duration-300"
-                            data-ai-hint="corporate team"
+                            data-ai-hint="digital innovation"
                         />
                     </div>
                 </div>
