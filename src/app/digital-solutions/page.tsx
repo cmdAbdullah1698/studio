@@ -1,15 +1,40 @@
 import PageHeader from "@/components/page-header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
+import React from "react";
 import { Smartphone, Laptop, Search, BarChart, Hotel, Building } from "lucide-react";
 
 const services = [
-    { title: "Website Development", icon: <Laptop /> },
-    { title: "Mobile App Development", icon: <Smartphone /> },
-    { title: "Social Media Campaigns", icon: <BarChart /> },
-    { title: "SEO & SEM", icon: <Search /> },
-    { title: "Digital Solutions for Hospitality", icon: <Hotel /> },
-    { title: "Real Estate Tech Solutions", icon: <Building /> }
+    { 
+        title: "Website Development", 
+        description: "Business websites, landing pages, eCommerce, CMS platforms", 
+        icon: <Laptop /> 
+    },
+    { 
+        title: "Mobile App Development", 
+        description: "Native & cross-platform apps for Android and iOS", 
+        icon: <Smartphone /> 
+    },
+    { 
+        title: "Social Media Campaigns", 
+        description: "Content creation, paid ads, performance analytics", 
+        icon: <BarChart /> 
+    },
+    { 
+        title: "SEO & SEM", 
+        description: "Drive organic traffic and ROI-driven Google Ads campaigns", 
+        icon: <Search /> 
+    },
+    { 
+        title: "Digital Solutions for Hospitality", 
+        description: "Hotel booking systems, guest apps, channel integrations", 
+        icon: <Hotel /> 
+    },
+    { 
+        title: "Real Estate Tech Solutions", 
+        description: "Property portals, CRM integrations, 3D tours, listing engines", 
+        icon: <Building /> 
+    }
 ];
 
 export default function DigitalSolutionsPage() {
@@ -28,7 +53,7 @@ export default function DigitalSolutionsPage() {
                             <CardTitle className="text-xl">{service.title}</CardTitle>
                         </CardHeader>
                         <CardContent>
-                          {/* Descriptions can be added here if needed */}
+                          <p className="text-muted-foreground">{service.description}</p>
                         </CardContent>
                     </Card>
                 ))}
@@ -39,7 +64,7 @@ export default function DigitalSolutionsPage() {
                     <div className="p-8 md:p-12">
                         <h3 className="text-2xl font-bold mb-4">Scalable, Responsive, and Secure</h3>
                         <p className="text-muted-foreground text-lg">
-                           Our team of experts is committed to delivering high-quality digital products that not only look great but also perform flawlessly under pressure. We build solutions that scale with your business and keep your data safe.
+                           Our team of experts deliver scalable, responsive, and secure digital products.
                         </p>
                     </div>
                      <div className="relative min-h-[300px] md:min-h-[400px]">
