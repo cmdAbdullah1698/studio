@@ -37,8 +37,8 @@ export default function CybersecurityPage() {
                  <div className="grid md:grid-cols-2 items-center">
                     <div className="relative min-h-[300px] md:min-h-[400px]">
                          <Image
-                            src="https://placehold.co/600x400.png"
-                            alt="Cybersecurity Shield"
+                            src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjb21wdXRlciUyMHNlY3VyaXR5fGVufDB8fHx8MTc1MzU2MDUyNnww&ixlib=rb-4.1.0&q=80&w=1080"
+                            alt="Cybersecurity abstract shield"
                             layout="fill"
                             objectFit="cover"
                             data-ai-hint="cybersecurity abstract shield"
