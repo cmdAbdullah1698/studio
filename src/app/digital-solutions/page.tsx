@@ -70,10 +70,10 @@ export default function DigitalSolutionsPage() {
                      <div className="relative min-h-[300px] md:min-h-[400px]">
                          <Image
                             src="https://placehold.co/600x400.png"
-                            alt="Digital Products Showcase"
+                            alt="Scalable and secure digital solutions"
                             layout="fill"
                             objectFit="cover"
-                            data-ai-hint="modern technology abstract"
+                            data-ai-hint="scalable technology"
                         />
                     </div>
                 </div>
