@@ -85,6 +85,7 @@
   .group:hover .dot-2 { transition-delay: 0.2s; }
   .group:hover .dot-3 { transition-delay: 0.3s; }
   .group:hover .dot-4 { transition-delay: 0.4s; }
+  .group:hover .dot-5 { transition-delay: 0.5s; }
 
   .line {
     stroke-width: 2;
@@ -96,6 +97,6 @@
 
   .group:hover .line {
     stroke-dashoffset: 0;
-    transition-delay: 0.5s;
+    transition-delay: 0.6s;
   }
 }
