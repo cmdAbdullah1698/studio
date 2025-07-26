@@ -60,7 +60,7 @@ export default function TrainingPage() {
                         />
                     </div>
                     <div className="p-8 md:p-12">
-                        <h3 className="text-2xl font-bold mb-4">Results-Driven & Empathetic</h3>
+                        <h3 className="text-2xl font-bold mb-4">Results-Driven Training &amp; Consultation</h3>
                         <p className="text-muted-foreground text-lg">
                             Whether you're at the start of your journey or facing a transition, our approach is designed to deliver tangible outcomes. We listen, we strategize, and we empower you to succeed.
                         </p>
