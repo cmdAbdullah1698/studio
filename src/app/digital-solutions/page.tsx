@@ -1,3 +1,4 @@
+
 import PageHeader from "@/components/page-header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
@@ -69,7 +70,7 @@ export default function DigitalSolutionsPage() {
                     </div>
                      <div className="relative min-h-[300px] md:min-h-[400px]">
                          <Image
-                            src="https://placehold.co/600x400.png"
+                            src="https://images.unsplash.com/photo-1616628188540-925618b98318?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMnx8b3V0cHV0JTIwYW5kJTIwc29sdXRpb25zfGVufDB8fHx8MTc1MzU2MDQxM3ww&ixlib=rb-4.1.0&q=80&w=1080"
                             alt="Scalable and secure digital solutions"
                             layout="fill"
                             objectFit="cover"
