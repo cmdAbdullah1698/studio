@@ -52,7 +52,7 @@ export default function TrainingPage() {
                 <div className="grid md:grid-cols-2 items-center">
                      <div className="relative min-h-[300px] md:min-h-[400px]">
                          <Image
-                            src="https://placehold.co/600x400.png"
+                            src="https://images.unsplash.com/photo-1633307057722-a4740ba0c5d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxyZXN1bHRzJTIwZHJpdmVuJTIwfGVufDB8fHx8MTc1MzU2MDI5MXww&ixlib=rb-4.1.0&q=80&w=1080"
                             alt="Consultation session"
                             layout="fill"
                             objectFit="cover"
