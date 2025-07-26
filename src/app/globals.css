@@ -1,27 +1,28 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 220 20% 98%;
-    --foreground: 222 47% 11%;
-    --card: 220 20% 100%;
-    --card-foreground: 222 47% 11%;
-    --popover: 220 20% 100%;
-    --popover-foreground: 222 47% 11%;
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 15%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
     --primary: 217 91% 60%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222 47% 11%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 45 93% 47%;
-    --accent-foreground: 222 47% 11%;
-    --destructive: 0 84.2% 60.2%;
+    --primary-foreground: 222 47% 11%;
+    --secondary: 217 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 195 91% 60%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
+    --border: 217 32.6% 17.5%;
+    --input: 217 32.6% 17.5%;
     --ring: 217 91% 60%;
     --radius: 0.75rem;
   }
@@ -38,7 +39,7 @@
     --secondary-foreground: 210 40% 98%;
     --muted: 217 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
-    --accent: 45 93% 47%;
+    --accent: 195 91% 60%;
     --accent-foreground: 210 40% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
@@ -57,5 +58,45 @@
     font-variant-ligatures: common-ligatures;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer components {
+  .dot {
+    @apply fill-accent;
+    transform-origin: center;
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .group:hover .dot {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  .group:hover .dot-1 { transition-delay: 0.1s; }
+  .group:hover .dot-2 { transition-delay: 0.2s; }
+  .group:hover .dot-3 { transition-delay: 0.3s; }
+  .group:hover .dot-4 { transition-delay: 0.4s; }
+  .group:hover .dot-5 { transition-delay: 0.5s; }
+
+  .line {
+    stroke-width: 2;
+    @apply stroke-accent;
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    transition: stroke-dashoffset 0.5s ease-in-out;
+  }
+
+  .group:hover .line {
+    stroke-dashoffset: 0;
+    transition-delay: 0.6s;
   }
 }
