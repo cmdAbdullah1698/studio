@@ -39,7 +39,7 @@ export default function AboutPage() {
                     </div>
                     <div className="relative min-h-[300px] md:min-h-0">
                          <Image
-                            src="https://placehold.co/600x800.png"
+                            src="https://images.unsplash.com/photo-1712297224078-21bb0b79c070?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxOXx8ZW1wb3dlcmluZyUyMG1pbmRzfGVufDB8fHx8MTc1MzU2MDAzMnww&ixlib=rb-4.1.0&q=80&w=1080"
                             alt="Our Team"
                             layout="fill"
                             objectFit="cover"
