@@ -4,9 +4,9 @@ import { CheckCircle } from "lucide-react";
 import Image from "next/image";
 
 const achievements = [
-    "Launched and scaled Skyloov.com, a PropTech startup in Dubai",
-    "Managed marketing and account success at Bayut.com and PropertyFinder.com",
-    "Delivered trade and BTL marketing solutions with Royal FrieslandCampina",
+    "Launched and scaled a PropTech startup in a competitive market",
+    "Managed marketing and account success for leading property portals",
+    "Delivered impactful trade and BTL marketing solutions for an FMCG giant",
     "Helped brands and teams navigate digital transformation in competitive markets"
 ];
 
