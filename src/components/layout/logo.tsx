@@ -13,9 +13,9 @@ export default function Logo() {
           alt="thelinkingdots logo"
           width={48}
           height={48}
-          className="h-12 w-auto transition-all duration-300 dark:group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,1)] group-hover:drop-shadow-[0_0_8px_hsl(var(--primary)/0.7)]"
+          className="h-12 w-auto transition-all duration-300 dark:group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,1)] group-hover:drop-shadow-[0_0_12px_hsl(var(--accent)/0.5)] group-hover:scale-110"
         />
-      <span>
+      <span className="transition-transform duration-300 group-hover:scale-110">
         thelinkingdots
       </span>
       <div className="absolute -bottom-4 left-0 right-0 h-5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
