@@ -13,7 +13,7 @@ export default function Logo() {
           alt="thelinkingdots logo"
           width={48}
           height={48}
-          className="h-12 w-auto transition-all duration-300 dark:group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,1)] group-hover:drop-shadow-[0_0_8px_hsl(var(--primary)/0.7)]"
+          className="h-12 w-auto transition-all duration-300 dark:group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,1)] group-hover:drop-shadow-[0_0_8px_hsl(var(--primary)/0.7)]"
         />
       <span>
         thelinkingdots
