@@ -1,6 +1,5 @@
 'use client';
 
-import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -12,7 +11,7 @@ export default function Logo() {
           alt="thelinkingdots logo"
           width={60}
           height={60}
-          className="h-14 w-auto transition-transform duration-300 group-hover:scale-110 dark:group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.9)] group-hover:drop-shadow-[0_0_20px_hsla(var(--primary),0.7)]"
+          className="h-12 w-auto transition-transform duration-300 group-hover:scale-110"
         />
       <div className="relative">
         <span className="transition-transform duration-300 group-hover:scale-110 inline-block">
