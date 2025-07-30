@@ -11,12 +11,12 @@ import Logo from "./logo";
 import { ThemeToggle } from "../theme-toggle";
 
 const navLinks = [
-  { href: "/", label: "home" },
-  { href: "/about", label: "about" },
-  { href: "/training", label: "training" },
-  { href: "/digital-solutions", label: "solutions" },
-  { href: "/cybersecurity", label: "cybersecurity" },
-  { href: "/contact", label: "contact" },
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/training", label: "Training" },
+  { href: "/digital-solutions", label: "Digital Solutions" },
+  { href: "/cybersecurity", label: "Cybersecurity" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function Header() {
@@ -47,7 +47,7 @@ export default function Header() {
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">
                 <Menu className="h-7 w-7" />
-                <span className="sr-only">toggle menu</span>
+                <span className="sr-only">Toggle Menu</span>
               </Button>
             </SheetTrigger>
             <SheetContent side="right">

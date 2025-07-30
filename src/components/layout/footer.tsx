@@ -8,7 +8,7 @@ export default function Footer() {
                 <Link href="/" className="text-xl font-bold tracking-wider">
                     thelinkingdots
                 </Link>
-                <p className="text-base text-muted-foreground">&copy; {new Date().getFullYear()} thelinkingdots. all rights reserved.</p>
+                <p className="text-base text-muted-foreground">&copy; {new Date().getFullYear()} thelinkingdots. All rights reserved.</p>
                 <div className="flex gap-6">
                     <Link href="#" aria-label="facebook"><Facebook className="h-6 w-6 hover:text-accent transition-colors" /></Link>
                     <Link href="#" aria-label="instagram"><Instagram className="h-6 w-6 hover:text-accent transition-colors" /></Link>

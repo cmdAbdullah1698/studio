@@ -11,7 +11,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 export const metadata: Metadata = {
   title: "thelinkingdots",
   description:
-    "we are a collective of strategists, creatives, and innovators dedicated to providing transformative digital marketing, solutions, and training.",
+    "We are a collective of strategists, creatives, and innovators dedicated to providing transformative digital marketing, solutions, and training.",
 };
 
 const poppins = Poppins({
