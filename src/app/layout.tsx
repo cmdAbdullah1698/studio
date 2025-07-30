@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   title: "thelinkingdots",
   description:
     "We are a collective of strategists, creatives, and innovators dedicated to providing transformative digital marketing, solutions, and training.",
+  icons: {
+    icon: "/logo.png",
+  },
 };
 
 const poppins = Poppins({

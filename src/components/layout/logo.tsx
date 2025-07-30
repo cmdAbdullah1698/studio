@@ -2,12 +2,22 @@
 'use client';
 
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Logo() {
   return (
-    <Link href="/" className="group relative text-2xl font-bold tracking-wider">
-      thelinkingdots
+    <Link href="/" className="group relative flex items-center gap-2 text-2xl font-bold tracking-wider">
+      <Image 
+        src="/logo.png" 
+        alt="thelinkingdots logo"
+        width={32}
+        height={32}
+        className="transition-all duration-300 group-hover:drop-shadow-[0_0_5px_hsl(var(--primary))]"
+      />
+      <span>
+        thelinkingdots
+      </span>
       <div className="absolute -bottom-4.5 left-0 right-0 h-5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         <svg width="100" height="10" viewBox="0 0 100 14" className="w-full h-auto">
           {/* Dots */}
