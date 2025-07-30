@@ -11,9 +11,9 @@ export default function Logo() {
        <Image
           src="/logo.png"
           alt="thelinkingdots logo"
-          width={32}
-          height={32}
-          className="h-8 w-auto transition-all duration-300 group-hover:drop-shadow-[0_0_8px_hsl(var(--primary)/0.7)]"
+          width={48}
+          height={48}
+          className="h-12 w-auto transition-all duration-300 dark:group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.7)] group-hover:drop-shadow-[0_0_8px_hsl(var(--primary)/0.7)]"
         />
       <span>
         thelinkingdots
