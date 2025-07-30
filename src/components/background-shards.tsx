@@ -27,11 +27,11 @@ export default function BackgroundShards() {
       <Shard className="top-[5%] right-[-5%] w-1/3 h-1/3 transform -rotate-12" colorClass="fill-accent/70" />
       <Shard className="bottom-[30%] right-[35%] w-1/5 h-1/5 transform rotate-30" colorClass="fill-accent/50" />
       <Shard className="bottom-[-10%] right-[-15%] w-1/2 h-1/2 transform -rotate-30" colorClass="fill-accent/80" />
-
-      {/* Grey Shards */}
-      <Shard className="top-[50%] left-[5%] w-1/6 h-1/6 transform rotate-60" colorClass="fill-muted-foreground/30" />
-      <Shard className="top-[60%] right-[10%] w-1/4 h-1/4 transform rotate-15" colorClass="fill-muted-foreground/20" />
-      <Shard className="top-[5%] left-[30%] w-1/6 h-1/6 transform rotate-15" colorClass="fill-muted-foreground/30" />
+      
+      {/* White Shards */}
+      <Shard className="top-[50%] left-[5%] w-1/6 h-1/6 transform rotate-60" colorClass="fill-foreground/10" />
+      <Shard className="top-[60%] right-[10%] w-1/4 h-1/4 transform rotate-15" colorClass="fill-foreground/5" />
+      <Shard className="top-[5%] left-[30%] w-1/6 h-1/6 transform rotate-15" colorClass="fill-foreground/10" />
     </div>
   );
 }
