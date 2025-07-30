@@ -73,7 +73,7 @@
     transform-origin: center;
     opacity: 0;
     transform: scale(0);
-    transition: all 0.3s ease-in-out;
+    transition: all 0.2s ease-in-out;
   }
 
   .group:hover .dot {
@@ -81,22 +81,31 @@
     transform: scale(1);
   }
   
-  .group:hover .dot-1 { transition-delay: 0.1s; }
-  .group:hover .dot-2 { transition-delay: 0.2s; }
-  .group:hover .dot-3 { transition-delay: 0.3s; }
-  .group:hover .dot-4 { transition-delay: 0.4s; }
-  .group:hover .dot-5 { transition-delay: 0.5s; }
+  .group:hover .dot-1 { transition-delay: 0.0s; }
+  .group:hover .dot-2 { transition-delay: 0.1s; }
+  .group:hover .dot-3 { transition-delay: 0.2s; }
+  .group:hover .dot-4 { transition-delay: 0.1s; }
+  .group:hover .dot-5 { transition-delay: 0.0s; }
+
+  .dot-1, .dot-5 { transition-delay: 0.4s; }
+  .dot-2, .dot-4 { transition-delay: 0.3s; }
+  .dot-3 { transition-delay: 0.2s; }
+
 
   .line {
     stroke-width: 2;
     @apply stroke-accent;
-    stroke-dasharray: 100;
-    stroke-dashoffset: 100;
-    transition: stroke-dashoffset 0.5s ease-in-out;
+    stroke-dasharray: 60;
+    stroke-dashoffset: 60;
+    transition: stroke-dashoffset 0.3s ease-in-out;
   }
 
   .group:hover .line {
     stroke-dashoffset: 0;
-    transition-delay: 0.6s;
+    transition-delay: 0.2s;
+  }
+
+  .line {
+    transition-delay: 0s;
   }
 }
