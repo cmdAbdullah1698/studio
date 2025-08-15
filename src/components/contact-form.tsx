@@ -50,9 +50,17 @@ export default function ContactForm() {
   useEffect(() => {
     const script = document.createElement('script');
     script.src = `https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`;
+    script.async = true;
     document.body.appendChild(script);
     return () => {
       if (redirectTimer) clearTimeout(redirectTimer);
+      // Clean up the script to avoid memory leaks
+      const allScripts = document.getElementsByTagName('script');
+      for (let i = 0; i < allScripts.length; i++) {
+        if (allScripts[i].src === script.src) {
+          allScripts[i].remove();
+        }
+      }
     };
   }, [redirectTimer]);
 
@@ -63,70 +71,73 @@ export default function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
-    // Basic validation
     if (!selectedCategory || !selectedService) {
       toast({
         variant: 'destructive',
         title: 'Please fill all required fields',
         description: 'Category and service are required.'
       });
+      setIsSubmitting(false);
       return;
     }
-
-    setIsSubmitting(true);
-
-    // Get form data
+    
     const form = e.currentTarget;
     const formData = new FormData(form);
     formData.append('category', selectedCategory);
     formData.append('service', selectedService);
-    formData.append('access_token', process.env.NEXT_PUBLIC_FORM_ACCESS_TOKEN || '');
-
+    
     try {
-      // reCAPTCHA token
-      const recaptchaToken = await new Promise<string>((resolve, reject) => {
-        if (!(window as any).grecaptcha) {
-          reject('reCAPTCHA not loaded');
-        }
-        (window as any).grecaptcha.ready(() => {
-          (window as any).grecaptcha.execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!, { action: 'submit' })
-            .then(resolve)
-            .catch(reject);
-        });
-      });
-
-      formData.append('recaptcha_token', recaptchaToken);
-
-      // Submit to Google Apps Script Web App URL
-      const response = await fetch(process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL!, {
-        method: 'POST',
-        body: formData,
-      });
-
-      if (response.ok) {
-        form.reset();
-        setSelectedCategory("");
-        setSelectedService("");
-        toast({
-          title: 'Message Sent!',
-          description: 'Thank you! We will get back to you within 12 to 48 hours. Redirecting to homepage...',
-        });
-        const timer = setTimeout(() => router.push('/'), 6000);
-        setRedirectTimer(timer);
-      } else {
-        throw new Error('Google Script submission failed');
+      if (!(window as any).grecaptcha) {
+        throw new Error("reCAPTCHA not loaded");
       }
+
+      (window as any).grecaptcha.ready(async () => {
+        try {
+          const token = await (window as any).grecaptcha.execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!, { action: 'submit' });
+          formData.append('recaptcha_token', token);
+          formData.append('access_token', process.env.NEXT_PUBLIC_FORM_ACCESS_TOKEN || '');
+
+          const response = await fetch(process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL!, {
+            method: 'POST',
+            body: formData,
+          });
+
+          if (response.ok) {
+            form.reset();
+            setSelectedCategory("");
+            setSelectedService("");
+            toast({
+              title: 'Message Sent!',
+              description: 'Thank you! We will get back to you within 12 to 48 hours. Redirecting to homepage...',
+            });
+            const timer = setTimeout(() => router.push('/'), 6000);
+            setRedirectTimer(timer);
+          } else {
+             const errorData = await response.json().catch(() => ({})); // try to parse error
+             throw new Error(errorData.error || 'Google Script submission failed');
+          }
+        } catch (error) {
+           toast({
+            variant: 'destructive',
+            title: 'Uh oh! Something went wrong.',
+            description: String(error),
+          });
+        } finally {
+           setIsSubmitting(false);
+        }
+      });
     } catch (error) {
-      toast({
+       toast({
         variant: 'destructive',
-        title: 'Uh oh! Something went wrong.',
+        title: 'Submission Error',
         description: String(error),
       });
-    } finally {
       setIsSubmitting(false);
     }
   };
+
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6 text-left">
@@ -170,7 +181,7 @@ export default function ContactForm() {
           <Select onValueChange={setSelectedService} value={selectedService} required>
             <SelectTrigger className="text-base h-11">
               <SelectValue placeholder="Choose a specific service..." />
-            </SelectTrigger>
+            </Trigger>
             <SelectContent>
               {serviceOptions[selectedCategory as keyof typeof serviceOptions].map(service => (
                 <SelectItem key={service} value={service}>{service}</SelectItem>
