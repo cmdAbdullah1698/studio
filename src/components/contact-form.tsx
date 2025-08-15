@@ -71,12 +71,9 @@ export default function ContactForm() {
 
 
     try {
-      const response = await fetch('https://formspree.io/f/xeozzezl', {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbzOFlmzwGjym84GPy2CurDmZalcnEQn0G52ehJA9NY_1bajgY56lgCt19qTPaba_EOvIQ/exec', {
         method: 'POST',
         body: formData,
-        headers: {
-          Accept: 'application/json',
-        },
       });
 
       if (response.ok) {
@@ -179,7 +176,7 @@ export default function ContactForm() {
             <Label htmlFor="service" className="text-base">
                 Select a Service
             </Label>
-            <Select onValueChange={setSelectedService} value={selectedService} required>
+            <Select onValueValueChange={setSelectedService} value={selectedService} required>
                 <SelectTrigger className="text-base h-11">
                     <SelectValue placeholder="Choose a specific service..." />
                 </SelectTrigger>
