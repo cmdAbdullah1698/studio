@@ -6,11 +6,11 @@ export default function ContactPage() {
   return (
     <div className="container mx-auto px-4 md:px-6 pb-20 md:pb-32">
       <PageHeader
-        title="Get In Touch"
-        description="Have a question or want to work together? Drop us a line."
+        title="Let's Connect"
+        description="Please fill out the form below, and we'll get back to you as soon as possible."
       />
 
-      <div className="mx-auto w-full max-w-lg">
+      <div className="mx-auto w-full max-w-2xl">
         <Card>
           <CardContent className="p-8">
             <ContactForm />
