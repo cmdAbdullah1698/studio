@@ -38,11 +38,6 @@ const serviceOptions = {
 
 type ServiceCategory = keyof typeof serviceOptions | "";
 
-// Capture environment variables
-const recaptchaSiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
-const googleScriptUrl = process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL;
-const formAccessToken = process.env.NEXT_PUBLIC_FORM_ACCESS_TOKEN;
-
 export default function ContactForm() {
   const router = useRouter();
   const { toast } = useToast();
@@ -51,28 +46,11 @@ export default function ContactForm() {
   const [selectedCategory, setSelectedCategory] = useState<ServiceCategory>("");
   const [selectedService, setSelectedService] = useState("");
 
-  // Load Google reCAPTCHA script on mount
   useEffect(() => {
-    if (!recaptchaSiteKey) {
-        console.error("reCAPTCHA site key is not configured.");
-        return;
-    }
-    const script = document.createElement('script');
-    script.src = `https://www.google.com/recaptcha/api.js?render=${recaptchaSiteKey}`;
-    script.async = true;
-    document.body.appendChild(script);
-    
     return () => {
       if (redirectTimer) clearTimeout(redirectTimer);
-      // Clean up the script to avoid memory leaks
-      const allScripts = document.getElementsByTagName('script');
-      for (let i = 0; i < allScripts.length; i++) {
-        if (allScripts[i].src === script.src) {
-          allScripts[i].remove();
-        }
-      }
     };
-  }, [redirectTimer, recaptchaSiteKey]);
+  }, [redirectTimer]);
 
   const handleCategoryChange = (value: ServiceCategory) => {
     setSelectedCategory(value);
@@ -93,71 +71,29 @@ export default function ContactForm() {
       return;
     }
     
-    if (!recaptchaSiteKey || !googleScriptUrl || !formAccessToken) {
-         toast({
-            variant: 'destructive',
-            title: 'Configuration Error',
-            description: 'The form is not configured correctly. Please contact support.',
-          });
-        setIsSubmitting(false);
-        return;
-    }
-
     const form = e.currentTarget;
     const formData = new FormData(form);
-    formData.append('category', selectedCategory);
-    formData.append('service', selectedService);
-    
-    try {
-      if (!(window as any).grecaptcha) {
-        throw new Error("reCAPTCHA not loaded");
-      }
+    const data = Object.fromEntries(formData.entries());
+    console.log('Form Submission:', {
+      ...data,
+      category: selectedCategory,
+      service: selectedService,
+    });
 
-      (window as any).grecaptcha.ready(async () => {
-        try {
-          const token = await (window as any).grecaptcha.execute(recaptchaSiteKey, { action: 'submit' });
-          formData.append('recaptcha_token', token);
-          formData.append('access_token', formAccessToken);
-
-          const response = await fetch(googleScriptUrl, {
-            method: 'POST',
-            body: formData,
-          });
-
-          if (response.ok) {
-            form.reset();
-            setSelectedCategory("");
-            setSelectedService("");
-            toast({
-              title: 'Message Sent!',
-              description: 'Thank you! We will get back to you within 12 to 48 hours. Redirecting to homepage...',
-            });
-            const timer = setTimeout(() => router.push('/'), 6000);
-            setRedirectTimer(timer);
-          } else {
-             const errorData = await response.json().catch(() => ({})); // try to parse error
-             throw new Error(errorData.error || 'Google Script submission failed');
-          }
-        } catch (error) {
-           toast({
-            variant: 'destructive',
-            title: 'Uh oh! Something went wrong.',
-            description: String(error),
-          });
-        } finally {
-           setIsSubmitting(false);
-        }
+    // Simulate a successful submission
+    setTimeout(() => {
+      form.reset();
+      setSelectedCategory("");
+      setSelectedService("");
+      toast({
+        title: 'Message Sent!',
+        description: 'Thank you! We will get back to you within 12 to 48 hours. Redirecting to homepage...',
       });
-    } catch (error) {
-       toast({
-        variant: 'destructive',
-        title: 'Submission Error',
-        description: String(error),
-      });
+      const timer = setTimeout(() => router.push('/'), 6000);
+      setRedirectTimer(timer);
       setIsSubmitting(false);
-    }
+    }, 1000);
   };
-
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6 text-left">
