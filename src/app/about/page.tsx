@@ -1,7 +1,6 @@
 import PageHeader from "@/components/page-header";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle } from "lucide-react";
-import Image from "next/image";
 
 const achievements = [
     "Launched and scaled a PropTech startup in a competitive market",
@@ -19,34 +18,22 @@ export default function AboutPage() {
             />
 
             <Card className="overflow-hidden">
-                <div className="grid md:grid-cols-2">
-                    <div className="p-8 md:p-12 flex flex-col justify-center">
-                        <h2 className="text-2xl md:text-3xl font-bold mb-4">Our Journey & Expertise</h2>
-                        <p className="text-muted-foreground mb-6 text-lg">
-                           From launching property portals to leading national marketing campaigns, our founder and team bring cross-industry knowledge backed by innovation, execution, and client success.
-                        </p>
-                        <ul className="space-y-4">
-                            {achievements.map((item, index) => (
-                                <li key={index} className="flex items-start">
-                                    <CheckCircle className="h-6 w-6 text-accent mr-3 mt-1 shrink-0" />
-                                    <span>{item}</span>
-                                </li>
-                            ))}
-                        </ul>
-                         <p className="text-lg mt-6 font-semibold">
-                            Whether you're a startup or an enterprise, we help you grow smart, digital, and fast.
-                        </p>
-                    </div>
-                    <div className="relative min-h-[300px] md:min-h-0">
-                         <Image
-                            src="https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwaW5ub3ZhdGlvbnxlbnwwfHx8fDE3NTM1NjAxMDh8MA&ixlib=rb-4.1.0&q=80&w=1080"
-                            alt="Digital Innovation"
-                            layout="fill"
-                            objectFit="cover"
-                            className="grayscale hover:grayscale-0 transition-all duration-300"
-                            data-ai-hint="digital innovation"
-                        />
-                    </div>
+                <div className="p-8 md:p-12 flex flex-col justify-center">
+                    <h2 className="text-2xl md:text-3xl font-bold mb-4">Our Journey & Expertise</h2>
+                    <p className="text-muted-foreground mb-6 text-lg">
+                       From launching property portals to leading national marketing campaigns, our founder and team bring cross-industry knowledge backed by innovation, execution, and client success.
+                    </p>
+                    <ul className="space-y-4">
+                        {achievements.map((item, index) => (
+                            <li key={index} className="flex items-start">
+                                <CheckCircle className="h-6 w-6 text-accent mr-3 mt-1 shrink-0" />
+                                <span>{item}</span>
+                            </li>
+                        ))}
+                    </ul>
+                     <p className="text-lg mt-6 font-semibold">
+                        Whether you're a startup or an enterprise, we help you grow smart, digital, and fast.
+                    </p>
                 </div>
             </Card>
         </div>

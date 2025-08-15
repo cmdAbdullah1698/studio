@@ -1,7 +1,6 @@
 import PageHeader from "@/components/page-header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Award, Briefcase, Handshake, Users } from "lucide-react";
-import Image from "next/image";
 
 const trainingAreas = [
     {
@@ -49,22 +48,11 @@ export default function TrainingPage() {
             </div>
 
             <Card className="overflow-hidden">
-                <div className="grid md:grid-cols-2 items-center">
-                     <div className="relative min-h-[300px] md:min-h-[400px]">
-                         <Image
-                            src="https://images.unsplash.com/photo-1633307057722-a4740ba0c5d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxyZXN1bHRzJTIwZHJpdmVuJTIwfGVufDB8fHx8MTc1MzU2MDI5MXww&ixlib=rb-4.1.0&q=80&w=1080"
-                            alt="Consultation session"
-                            layout="fill"
-                            objectFit="cover"
-                            data-ai-hint="business consultation"
-                        />
-                    </div>
-                    <div className="p-8 md:p-12">
-                        <h3 className="text-2xl font-bold mb-4">Results-Driven Training &amp; Consultation</h3>
-                        <p className="text-muted-foreground text-lg">
-                            Whether you're at the start of your journey or facing a transition, our approach is designed to deliver tangible outcomes. We listen, we strategize, and we empower you to succeed.
-                        </p>
-                    </div>
+                <div className="p-8 md:p-12 text-center">
+                    <h3 className="text-2xl font-bold mb-4">Results-Driven Training &amp; Consultation</h3>
+                    <p className="text-muted-foreground text-lg">
+                        Whether you're at the start of your journey or facing a transition, our approach is designed to deliver tangible outcomes. We listen, we strategize, and we empower you to succeed.
+                    </p>
                 </div>
             </Card>
 

@@ -1,7 +1,6 @@
 
 import PageHeader from "@/components/page-header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import Image from "next/image";
 import React from "react";
 import { Smartphone, Laptop, Search, BarChart, Hotel, Building } from "lucide-react";
 
@@ -61,22 +60,11 @@ export default function DigitalSolutionsPage() {
             </div>
 
             <Card className="overflow-hidden">
-                 <div className="grid md:grid-cols-2 items-center">
-                    <div className="p-8 md:p-12">
-                        <h3 className="text-2xl font-bold mb-4">Scalable, Responsive, and Secure</h3>
-                        <p className="text-muted-foreground text-lg">
-                           Our team of experts deliver scalable, responsive, and secure digital products.
-                        </p>
-                    </div>
-                     <div className="relative min-h-[300px] md:min-h-[400px]">
-                         <Image
-                            src="https://images.unsplash.com/photo-1616628188540-925618b98318?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMnx8b3V0cHV0JTIwYW5kJTIwc29sdXRpb25zfGVufDB8fHx8MTc1MzU2MDQxM3ww&ixlib=rb-4.1.0&q=80&w=1080"
-                            alt="Scalable and secure digital solutions"
-                            layout="fill"
-                            objectFit="cover"
-                            data-ai-hint="scalable technology"
-                        />
-                    </div>
+                 <div className="p-8 md:p-12 text-center">
+                    <h3 className="text-2xl font-bold mb-4">Scalable, Responsive, and Secure</h3>
+                    <p className="text-muted-foreground text-lg">
+                       Our team of experts deliver scalable, responsive, and secure digital products.
+                    </p>
                 </div>
             </Card>
 
