@@ -46,12 +46,22 @@ export default function ContactForm() {
   const [selectedCategory, setSelectedCategory] = useState<ServiceCategory>("");
   const [selectedService, setSelectedService] = useState("");
 
+  // Environment variables
+  const recaptchaSiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+  const googleScriptUrl = process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL;
+  const formAccessToken = process.env.NEXT_PUBLIC_FORM_ACCESS_TOKEN;
+
   // Load Google reCAPTCHA script on mount
   useEffect(() => {
+    if (!recaptchaSiteKey) {
+        console.error("reCAPTCHA site key is not configured.");
+        return;
+    }
     const script = document.createElement('script');
-    script.src = `https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`;
+    script.src = `https://www.google.com/recaptcha/api.js?render=${recaptchaSiteKey}`;
     script.async = true;
     document.body.appendChild(script);
+    
     return () => {
       if (redirectTimer) clearTimeout(redirectTimer);
       // Clean up the script to avoid memory leaks
@@ -62,7 +72,7 @@ export default function ContactForm() {
         }
       }
     };
-  }, [redirectTimer]);
+  }, [redirectTimer, recaptchaSiteKey]);
 
   const handleCategoryChange = (value: ServiceCategory) => {
     setSelectedCategory(value);
@@ -83,6 +93,16 @@ export default function ContactForm() {
       return;
     }
     
+    if (!recaptchaSiteKey || !googleScriptUrl || !formAccessToken) {
+         toast({
+            variant: 'destructive',
+            title: 'Configuration Error',
+            description: 'The form is not configured correctly. Please contact support.',
+          });
+        setIsSubmitting(false);
+        return;
+    }
+
     const form = e.currentTarget;
     const formData = new FormData(form);
     formData.append('category', selectedCategory);
@@ -95,11 +115,11 @@ export default function ContactForm() {
 
       (window as any).grecaptcha.ready(async () => {
         try {
-          const token = await (window as any).grecaptcha.execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!, { action: 'submit' });
+          const token = await (window as any).grecaptcha.execute(recaptchaSiteKey, { action: 'submit' });
           formData.append('recaptcha_token', token);
-          formData.append('access_token', process.env.NEXT_PUBLIC_FORM_ACCESS_TOKEN || '');
+          formData.append('access_token', formAccessToken);
 
-          const response = await fetch(process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL!, {
+          const response = await fetch(googleScriptUrl, {
             method: 'POST',
             body: formData,
           });
