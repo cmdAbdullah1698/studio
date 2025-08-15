@@ -176,7 +176,7 @@ export default function ContactForm() {
             <Label htmlFor="service" className="text-base">
                 Select a Service
             </Label>
-            <Select onValueValueChange={setSelectedService} value={selectedService} required>
+            <Select onValueChange={setSelectedService} value={selectedService} required>
                 <SelectTrigger className="text-base h-11">
                     <SelectValue placeholder="Choose a specific service..." />
                 </SelectTrigger>
