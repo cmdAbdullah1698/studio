@@ -10,7 +10,6 @@ import { useState, useEffect } from 'react';
 import { Loader2 } from 'lucide-react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
-// Service categories
 const serviceOptions = {
   "Training": [
     "Entrepreneurship & Innovation",
@@ -48,76 +47,116 @@ export default function ContactForm() {
 
   useEffect(() => {
     return () => {
-      if (redirectTimer) clearTimeout(redirectTimer);
+      if (redirectTimer) {
+        clearTimeout(redirectTimer);
+      }
     };
   }, [redirectTimer]);
 
   const handleCategoryChange = (value: ServiceCategory) => {
     setSelectedCategory(value);
-    setSelectedService("");
-  };
+    setSelectedService(""); 
+  }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    if (!selectedCategory || !selectedService) {
-      toast({
-        variant: 'destructive',
-        title: 'Please fill all required fields',
-        description: 'Category and service are required.'
-      });
-      setIsSubmitting(false);
-      return;
-    }
-    
     const form = e.currentTarget;
     const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
-    console.log('Form Submission:', {
-      ...data,
-      category: selectedCategory,
-      service: selectedService,
-    });
+    formData.append('category', selectedCategory);
+    formData.append('service', selectedService);
 
-    // Simulate a successful submission
-    setTimeout(() => {
-      form.reset();
-      setSelectedCategory("");
-      setSelectedService("");
-      toast({
-        title: 'Message Sent!',
-        description: 'Thank you! We will get back to you within 12 to 48 hours. Redirecting to homepage...',
+    try {
+      // Replace with your actual Google Apps Script Web App URL
+      const response = await fetch('https://script.google.com/macros/s/AKfycbzOFlmzwGjym84GPy2CurDmZalcnEQn0G52ehJA9NY_1bajgY56lgCt19qTPaba_EOvIQ/exec', {
+        method: 'POST',
+        body: formData,
       });
-      const timer = setTimeout(() => router.push('/'), 6000);
-      setRedirectTimer(timer);
+
+      if (response.ok) {
+        form.reset();
+        setSelectedCategory("");
+        setSelectedService("");
+        toast({
+          title: 'Message Sent!',
+          description:
+            'Thank you! We will get back to you within 12 to 48 hours. Redirecting to homepage...',
+        });
+        const timer = setTimeout(() => {
+            router.push('/');
+        }, 6000);
+        setRedirectTimer(timer);
+      } else {
+        toast({
+          variant: 'destructive',
+          title: 'Uh oh! Something went wrong.',
+          description: 'There was a problem with your request.',
+        });
+      }
+    } catch (error) {
+      toast({
+        variant: 'destructive',
+        title: 'Uh oh! Something went wrong.',
+        description: 'There was a problem with your request.',
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6 text-left">
-      {/* Name & Email */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-2">
-          <Label htmlFor="name" className="text-base">Full Name</Label>
-          <Input id="name" name="name" placeholder="John Doe" required className="text-base h-11" disabled={isSubmitting} />
+          <Label htmlFor="name" className="text-base">
+            Full Name
+          </Label>
+          <Input
+            id="name"
+            name="name"
+            placeholder="John Doe"
+            required
+            className="text-base h-11"
+            disabled={isSubmitting}
+          />
         </div>
+
         <div className="space-y-2">
-          <Label htmlFor="email" className="text-base">Email</Label>
-          <Input id="email" name="email" type="email" placeholder="john.doe@example.com" required className="text-base h-11" disabled={isSubmitting} />
+          <Label htmlFor="email" className="text-base">
+            Email
+          </Label>
+          <Input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="john.doe@example.com"
+            required
+            className="text-base h-11"
+            disabled={isSubmitting}
+          />
         </div>
       </div>
-
-      {/* Phone */}
+      
       <div className="space-y-2">
-        <Label htmlFor="phone" className="text-base">Phone Number</Label>
-        <Input id="phone" name="phone" type="tel" placeholder="e.g. +1 234 567 8900" required className="text-base h-11" disabled={isSubmitting} />
+        <Label htmlFor="phone" className="text-base">
+          Phone Number
+        </Label>
+        <Input
+          id="phone"
+          name="phone"
+          type="tel"
+          placeholder="e.g. +1 234 567 8900"
+          required
+          className="text-base h-11"
+          disabled={isSubmitting}
+        />
       </div>
 
-      {/* Category */}
       <div className="space-y-2">
-        <Label htmlFor="category" className="text-base">Select a Category</Label>
+        <Label htmlFor="category" className="text-base">
+          Select a Category
+        </Label>
         <Select onValueChange={handleCategoryChange} value={selectedCategory} required>
           <SelectTrigger className="text-base h-11">
             <SelectValue placeholder="Choose a service category..." />
@@ -130,35 +169,51 @@ export default function ContactForm() {
         </Select>
       </div>
 
-      {/* Service */}
       {selectedCategory && (
-        <div className="space-y-2">
-          <Label htmlFor="service" className="text-base">Select a Service</Label>
-          <Select onValueChange={setSelectedService} value={selectedService} required>
-            <SelectTrigger className="text-base h-11">
-              <SelectValue placeholder="Choose a specific service..." />
-            </Trigger>
-            <SelectContent>
-              {serviceOptions[selectedCategory as keyof typeof serviceOptions].map(service => (
-                <SelectItem key={service} value={service}>{service}</SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
+         <div className="space-y-2">
+            <Label htmlFor="service" className="text-base">
+                Select a Service
+            </Label>
+            <Select onValueChange={setSelectedService} value={selectedService} required>
+                <SelectTrigger className="text-base h-11">
+                    <SelectValue placeholder="Choose a specific service..." />
+                </Trigger>
+                <SelectContent>
+                    {serviceOptions[selectedCategory].map(service => (
+                        <SelectItem key={service} value={service}>{service}</SelectItem>
+                    ))}
+                </SelectContent>
+            </Select>
+         </div>
       )}
 
-      {/* Message */}
       {selectedService && (
         <div className="space-y-2">
-          <Label htmlFor="message" className="text-base">Question / Message</Label>
-          <Textarea id="message" name="message" placeholder="How can we help you today?" required rows={5} className="text-base" disabled={isSubmitting} />
+            <Label htmlFor="message" className="text-base">
+            Question / Message
+            </Label>
+            <Textarea
+            id="message"
+            name="message"
+            placeholder="How can we help you today?"
+            required
+            rows={5}
+            className="text-base"
+            disabled={isSubmitting}
+            />
         </div>
       )}
 
-      {/* Submit */}
       <div className="pt-4">
         <Button type="submit" className="w-full text-lg py-6" disabled={isSubmitting || !selectedService}>
-          {isSubmitting ? (<><Loader2 className="mr-2 h-5 w-5 animate-spin" />Sending...</>) : ('Send Message')}
+          {isSubmitting ? (
+            <>
+              <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+              Sending...
+            </>
+          ) : (
+            'Send Message'
+          )}
         </Button>
       </div>
     </form>
