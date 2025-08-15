@@ -38,6 +38,11 @@ const serviceOptions = {
 
 type ServiceCategory = keyof typeof serviceOptions | "";
 
+// Capture environment variables
+const recaptchaSiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+const googleScriptUrl = process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL;
+const formAccessToken = process.env.NEXT_PUBLIC_FORM_ACCESS_TOKEN;
+
 export default function ContactForm() {
   const router = useRouter();
   const { toast } = useToast();
@@ -45,11 +50,6 @@ export default function ContactForm() {
   const [redirectTimer, setRedirectTimer] = useState<NodeJS.Timeout | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<ServiceCategory>("");
   const [selectedService, setSelectedService] = useState("");
-
-  // Environment variables
-  const recaptchaSiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
-  const googleScriptUrl = process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL;
-  const formAccessToken = process.env.NEXT_PUBLIC_FORM_ACCESS_TOKEN;
 
   // Load Google reCAPTCHA script on mount
   useEffect(() => {
