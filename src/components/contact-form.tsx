@@ -41,7 +41,7 @@ export default function ContactForm() {
   const router = useRouter();
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [redirectTimer, setRedirectTimer] = useState<NodeJS.Timeout | null>(null);
+  const [redirectTimer, setRedirectTimer] = useState<ReturnType<typeof setTimeout> | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<ServiceCategory>("");
   const [selectedService, setSelectedService] = useState("");
 
@@ -55,36 +55,70 @@ export default function ContactForm() {
 
   const handleCategoryChange = (value: ServiceCategory) => {
     setSelectedCategory(value);
-    setSelectedService(""); 
-  }
+    setSelectedService("");
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    // Front-end validation (shadcn Select doesn't use `required`)
+    const form = e.currentTarget as HTMLFormElement;
+    const name = (form.elements.namedItem('name') as HTMLInputElement)?.value?.trim();
+    const email = (form.elements.namedItem('email') as HTMLInputElement)?.value?.trim();
+    const phone = (form.elements.namedItem('phone') as HTMLInputElement)?.value?.trim();
+    const message = (form.elements.namedItem('message') as HTMLTextAreaElement)?.value?.trim();
+
+    if (!name || !email || !phone) {
+      toast({
+        variant: 'destructive',
+        title: 'Missing information',
+        description: 'Please fill out your name, email, and phone number.',
+      });
+      return;
+    }
+    if (!selectedCategory || !selectedService) {
+      toast({
+        variant: 'destructive',
+        title: 'Select category & service',
+        description: 'Please choose both a category and a specific service.',
+      });
+      return;
+    }
+    if (!message) {
+      toast({
+        variant: 'destructive',
+        title: 'Message required',
+        description: 'Please tell us a bit about your request.',
+      });
+      return;
+    }
+
     setIsSubmitting(true);
 
-    const form = e.currentTarget;
     const formData = new FormData(form);
     formData.append('category', selectedCategory);
     formData.append('service', selectedService);
 
     try {
-      // Replace with your actual Google Apps Script Web App URL
-      const response = await fetch('https://script.google.com/macros/s/AKfycbzOFlmzwGjym84GPy2CurDmZalcnEQn0G52ehJA9NY_1bajgY56lgCt19qTPaba_EOvIQ/exec', {
-        method: 'POST',
-        body: formData,
-      });
+      // Your Google Apps Script Web App URL
+      const response = await fetch(
+        'https://script.google.com/macros/s/AKfycbzOFlmzwGjym84GPy2CurDmZalcnEQn0G52ehJA9NY_1bajgY56lgCt19qTPaba_EOvIQ/exec',
+        {
+          method: 'POST',
+          body: formData,
+        }
+      );
 
       if (response.ok) {
         form.reset();
-        setSelectedCategory("");
-        setSelectedService("");
+        setSelectedCategory('');
+        setSelectedService('');
         toast({
           title: 'Message Sent!',
-          description:
-            'Thank you! We will get back to you within 12 to 48 hours. Redirecting to homepage...',
+          description: 'Thank you! We will get back to you within 12 to 48 hours. Redirecting to homepage...',
         });
         const timer = setTimeout(() => {
-            router.push('/');
+          router.push('/');
         }, 6000);
         setRedirectTimer(timer);
       } else {
@@ -116,7 +150,6 @@ export default function ContactForm() {
             id="name"
             name="name"
             placeholder="John Doe"
-            required
             className="text-base h-11"
             disabled={isSubmitting}
           />
@@ -131,13 +164,12 @@ export default function ContactForm() {
             name="email"
             type="email"
             placeholder="john.doe@example.com"
-            required
             className="text-base h-11"
             disabled={isSubmitting}
           />
         </div>
       </div>
-      
+
       <div className="space-y-2">
         <Label htmlFor="phone" className="text-base">
           Phone Number
@@ -147,7 +179,6 @@ export default function ContactForm() {
           name="phone"
           type="tel"
           placeholder="e.g. +1 234 567 8900"
-          required
           className="text-base h-11"
           disabled={isSubmitting}
         />
@@ -157,50 +188,53 @@ export default function ContactForm() {
         <Label htmlFor="category" className="text-base">
           Select a Category
         </Label>
-        <Select onValueChange={handleCategoryChange} value={selectedCategory} required>
+        <Select onValueChange={handleCategoryChange} value={selectedCategory}>
           <SelectTrigger className="text-base h-11">
             <SelectValue placeholder="Choose a service category..." />
           </SelectTrigger>
           <SelectContent>
-            {Object.keys(serviceOptions).map(category => (
-              <SelectItem key={category} value={category}>{category}</SelectItem>
+            {Object.keys(serviceOptions).map((category) => (
+              <SelectItem key={category} value={category}>
+                {category}
+              </SelectItem>
             ))}
           </SelectContent>
         </Select>
       </div>
 
       {selectedCategory && (
-         <div className="space-y-2">
-            <Label htmlFor="service" className="text-base">
-                Select a Service
-            </Label>
-            <Select onValueChange={setSelectedService} value={selectedService} required>
-                <SelectTrigger className="text-base h-11">
-                    <SelectValue placeholder="Choose a specific service..." />
-                </Trigger>
-                <SelectContent>
-                    {serviceOptions[selectedCategory].map(service => (
-                        <SelectItem key={service} value={service}>{service}</SelectItem>
-                    ))}
-                </SelectContent>
-            </Select>
-         </div>
+        <div className="space-y-2">
+          <Label htmlFor="service" className="text-base">
+            Select a Service
+          </Label>
+          <Select onValueChange={setSelectedService} value={selectedService}>
+            <SelectTrigger className="text-base h-11">
+              <SelectValue placeholder="Choose a specific service..." />
+            </SelectTrigger>
+            <SelectContent>
+              {serviceOptions[selectedCategory].map((service) => (
+                <SelectItem key={service} value={service}>
+                  {service}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
       )}
 
       {selectedService && (
         <div className="space-y-2">
-            <Label htmlFor="message" className="text-base">
+          <Label htmlFor="message" className="text-base">
             Question / Message
-            </Label>
-            <Textarea
+          </Label>
+          <Textarea
             id="message"
             name="message"
             placeholder="How can we help you today?"
-            required
             rows={5}
             className="text-base"
             disabled={isSubmitting}
-            />
+          />
         </div>
       )}
 
