@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useRouter } from 'next/navigation';
@@ -102,7 +103,7 @@ export default function ContactForm() {
     try {
       // Your Google Apps Script Web App URL
       const response = await fetch(
-        'https://script.google.com/macros/s/AKfycbzOFlmzwGjym84GPy2CurDmZalcnEQn0G52ehJA9NY_1bajgY56lgCt19qTPaba_EOvIQ/exec',
+        'https://script.google.com/macros/s/AKfycbymkbqaAjgKqU8wrdwp3up6IQU2eSyosi01scGxFuzZLIl3F9slDMD1XusYou6tSLo/exec',
         {
           method: 'POST',
           body: formData,
