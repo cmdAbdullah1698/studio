@@ -27,20 +27,23 @@ export default function Header() {
       <div className="container mx-auto flex h-28 items-center justify-between px-4 md:px-6">
         <Logo />
         <nav className="hidden md:flex items-center gap-2 text-base font-medium">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={cn(
-                "transition-colors hover:text-accent px-4 py-2 rounded-md",
-                pathname === link.href
-                  ? "bg-primary text-primary-foreground"
-                  : "text-foreground"
-              )}
-            >
-              {link.label}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  "transition-colors hover:text-accent px-4 py-2 rounded-md",
+                  isActive
+                    ? "bg-primary text-primary-foreground"
+                    : "text-foreground"
+                )}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
           <ThemeToggle />
         </nav>
         <div className="md:hidden flex items-center">
@@ -55,18 +58,21 @@ export default function Header() {
             <SheetContent side="right">
               <nav className="grid gap-6 text-lg font-medium mt-8">
                 <Logo />
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className={cn(
-                      "transition-colors hover:text-accent px-4 py-2 rounded-md",
-                       pathname === link.href ? "bg-primary text-primary-foreground" : "text-foreground"
-                    )}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
+                {navLinks.map((link) => {
+                   const isActive = pathname === link.href;
+                   return(
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className={cn(
+                        "transition-colors hover:text-accent px-4 py-2 rounded-md",
+                        isActive ? "bg-primary text-primary-foreground" : "text-foreground"
+                      )}
+                    >
+                      {link.label}
+                    </Link>
+                   )
+                })}
               </nav>
             </SheetContent>
           </Sheet>

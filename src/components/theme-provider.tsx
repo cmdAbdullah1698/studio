@@ -8,6 +8,9 @@ function ThemeAutoSwitcher() {
   const { setTheme, resolvedTheme } = useTheme();
   
   React.useEffect(() => {
+    // Only run this logic on the client-side
+    if (typeof window === 'undefined') return;
+
     const isInitialLoad = sessionStorage.getItem('theme_set') === null;
 
     if (isInitialLoad) {
