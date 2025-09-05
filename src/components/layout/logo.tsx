@@ -12,7 +12,7 @@ export default function Logo() {
         <span className="w-[70%] text-center text-xs font-medium tracking-normal mt-1 opacity-80 whitespace-nowrap">
             Training &amp; Consultancy
         </span>
-        <div className="absolute -bottom-7 left-1/2 -translate-x-1/2 h-7 flex items-center justify-center w-[100px]">
+        <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 h-7 flex items-center justify-center w-[100px]">
               <svg
               width="100"
               height="30"
@@ -21,9 +21,9 @@ export default function Logo() {
                         >
               <path d="M20 10 H 80" className="line" stroke="black" strokeWidth="4" />
               <circle cx="20" cy="10" r="3.5" className="dot dot-1" fill="black" />
-              <circle cx="30" cy="10" r="4.5" className="dot dot-2" fill="black" />
+              <circle cx="35" cy="10" r="4.5" className="dot dot-2" fill="black" />
               <circle cx="50" cy="10" r="10" className="dot dot-3" fill="black" />
-              <circle cx="70" cy="10" r="4.5" className="dot dot-4" fill="black" />
+              <circle cx="65" cy="10" r="4.5" className="dot dot-4" fill="black" />
               <circle cx="80" cy="10" r="3.5" className="dot dot-5" fill="black" />
             </svg>
 
