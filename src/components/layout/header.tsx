@@ -74,7 +74,7 @@ export default function Header() {
                           : "text-foreground hover:text-accent"
                       )}
                     >
-                      {link.mobileLabel || (typeof link.label === 'string' ? link.label : <>{link.label}</>)}
+                      {link.mobileLabel || (typeof link.label === 'string' ? link.label : 'Digital Solutions')}
                     </Link>
                    )
                 })}
