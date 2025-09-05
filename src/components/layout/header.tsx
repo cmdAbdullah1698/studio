@@ -58,7 +58,7 @@ export default function Header() {
             </SheetTrigger>
             <SheetContent side="right">
               <nav className="grid gap-6 text-lg font-medium mt-8">
-                <div className="mb-4">
+                <div className="mb-8">
                   <Logo />
                 </div>
                 {navLinks.map((link) => {
@@ -70,7 +70,7 @@ export default function Header() {
                       className={cn(
                         "transition-colors px-4 py-2 rounded-md",
                         isActive
-                          ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                          ? "bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground"
                           : "text-foreground hover:text-accent"
                       )}
                     >
