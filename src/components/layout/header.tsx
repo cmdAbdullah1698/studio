@@ -26,7 +26,7 @@ export default function Header() {
     <header className="sticky top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm">
       <div className="container mx-auto flex h-28 items-center justify-between px-4 md:px-6">
         <Logo />
-        <nav className="hidden md:flex items-center gap-2 text-base font-medium">
+        <nav className="hidden md:flex items-center gap-2 text-base font-medium pt-2">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -47,7 +47,7 @@ export default function Header() {
           })}
           <ThemeToggle />
         </nav>
-        <div className="md:hidden flex items-center">
+        <div className="md:hidden flex items-center pt-2">
           <ThemeToggle />
           <Sheet>
             <SheetTrigger asChild>
