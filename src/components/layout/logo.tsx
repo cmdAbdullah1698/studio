@@ -4,12 +4,15 @@ import Link from "next/link";
 
 export default function Logo() {
   return (
-    <Link href="/" className="group relative flex items-center gap-2 text-2xl font-bold tracking-wider">
-      <div className="relative">
+    <Link href="/" className="group relative flex items-center text-2xl font-bold tracking-wider">
+      <div className="relative flex flex-col items-center">
         <span className="transition-transform duration-300 group-hover:scale-110 inline-block">
           thelinkingdots
         </span>
-        <div className="absolute -bottom-5.5 left-1/2 -translate-x-1/2 h-7 flex items-center justify-center w-[100px]">
+        <span className="text-xs font-medium tracking-normal mt-1 opacity-80" style={{width: '70%'}}>
+            Training &amp; Consultancy
+        </span>
+        <div className="absolute -bottom-7 left-1/2 -translate-x-1/2 h-7 flex items-center justify-center w-[100px]">
               <svg
               width="100"
               height="30"
