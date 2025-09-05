@@ -14,7 +14,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/training", label: "Training" },
-  { href: "/digital-solutions", label: <>Digital<br />Solutions</> },
+  { href: "/digital-solutions", label: <>Digital<br />Solutions</>, mobileLabel: "Digital Solutions" },
   { href: "/cybersecurity", label: "Cybersecurity" },
   { href: "/contact", label: "Contact" },
 ];
@@ -74,7 +74,7 @@ export default function Header() {
                           : "text-foreground hover:text-accent"
                       )}
                     >
-                      {typeof link.label === 'string' ? link.label : <span className="flex flex-col items-center">{link.label}</span>}
+                      {link.mobileLabel || (typeof link.label === 'string' ? link.label : <>{link.label}</>)}
                     </Link>
                    )
                 })}
