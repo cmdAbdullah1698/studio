@@ -14,7 +14,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/training", label: "Training" },
-  { href: "/digital-solutions", label: "Digital Solutions" },
+  { href: "/digital-solutions", label: <>Digital<br />Solutions</> },
   { href: "/cybersecurity", label: "Cybersecurity" },
   { href: "/contact", label: "Contact" },
 ];
@@ -34,10 +34,13 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "transition-colors px-4 py-2 rounded-md",
+                  "transition-colors px-4 py-2 rounded-md flex items-center justify-center text-center",
                   isActive
                     ? "bg-primary text-primary-foreground hover:bg-primary/90"
-                    : "text-foreground hover:text-accent"
+                    : "text-foreground hover:text-accent",
+                  {
+                    "hover:text-primary-foreground": isActive,
+                  }
                 )}
               >
                 {link.label}
@@ -71,7 +74,7 @@ export default function Header() {
                           : "text-foreground hover:text-accent"
                       )}
                     >
-                      {link.label}
+                      {typeof link.label === 'string' ? link.label : <span className="flex flex-col items-center">{link.label}</span>}
                     </Link>
                    )
                 })}
