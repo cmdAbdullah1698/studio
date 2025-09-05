@@ -58,7 +58,9 @@ export default function Header() {
             </SheetTrigger>
             <SheetContent side="right">
               <nav className="grid gap-6 text-lg font-medium mt-8">
-                <Logo />
+                <div className="mb-4">
+                  <Logo />
+                </div>
                 {navLinks.map((link) => {
                    const isActive = pathname === link.href;
                    return(
