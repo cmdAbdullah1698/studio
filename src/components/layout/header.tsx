@@ -34,10 +34,10 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "transition-colors hover:text-accent px-4 py-2 rounded-md",
+                  "transition-colors px-4 py-2 rounded-md",
                   isActive
-                    ? "bg-primary text-primary-foreground"
-                    : "text-foreground"
+                    ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                    : "text-foreground hover:text-accent"
                 )}
               >
                 {link.label}
@@ -65,8 +65,10 @@ export default function Header() {
                       key={link.href}
                       href={link.href}
                       className={cn(
-                        "transition-colors hover:text-accent px-4 py-2 rounded-md",
-                        isActive ? "bg-primary text-primary-foreground" : "text-foreground"
+                        "transition-colors px-4 py-2 rounded-md",
+                        isActive
+                          ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                          : "text-foreground hover:text-accent"
                       )}
                     >
                       {link.label}
