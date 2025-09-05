@@ -34,13 +34,11 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "transition-colors px-4 py-2 rounded-md flex items-center",
+                  "transition-colors px-4 py-2 rounded-md",
                   isActive
-                    ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                    ? "bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground"
                     : "text-foreground hover:text-accent",
-                  {
-                    "hover:text-primary-foreground": isActive,
-                  }
+                    link.href === "/digital-solutions" ? "" : "flex items-center"
                 )}
               >
                 {link.label}
