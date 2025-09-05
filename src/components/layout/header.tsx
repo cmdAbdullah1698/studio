@@ -26,14 +26,16 @@ export default function Header() {
     <header className="sticky top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm">
       <div className="container mx-auto flex h-28 items-center justify-between px-4 md:px-6">
         <Logo />
-        <nav className="hidden md:flex items-center gap-8 text-base font-medium">
+        <nav className="hidden md:flex items-center gap-2 text-base font-medium">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className={cn(
-                "transition-colors hover:text-accent",
-                pathname === link.href ? "text-accent" : "text-foreground"
+                "transition-colors hover:text-accent px-4 py-2 rounded-md",
+                pathname === link.href
+                  ? "bg-secondary text-accent-foreground"
+                  : "text-foreground"
               )}
             >
               {link.label}
@@ -58,8 +60,8 @@ export default function Header() {
                     key={link.href}
                     href={link.href}
                     className={cn(
-                      "transition-colors hover:text-accent",
-                       pathname === link.href ? "text-accent" : "text-foreground"
+                      "transition-colors hover:text-accent px-4 py-2 rounded-md",
+                       pathname === link.href ? "bg-secondary text-accent-foreground" : "text-foreground"
                     )}
                   >
                     {link.label}
