@@ -10,7 +10,8 @@ export default function Footer() {
                     <Link href="/" className="text-xl font-bold tracking-wider">
                         thelinkingdots
                     </Link>
-                    <p className="text-base text-muted-foreground text-center">&copy; {new Date().getFullYear()} thelinkingdots. All rights reserved.</p>
+                    <p className="text-base text-muted-foreground text-center flex-1">&copy; {new Date().getFullYear()} thelinkingdots. All rights reserved.</p>
+                    <div className="w-[150px] hidden md:block"></div>
                 </div>
 
                 <div className="w-full flex justify-center items-center relative pt-2">
