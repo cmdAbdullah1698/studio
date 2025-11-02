@@ -8,7 +8,12 @@ export default function Footer() {
                 <Link href="/" className="text-xl font-bold tracking-wider">
                     thelinkingdots
                 </Link>
-                <p className="text-base text-muted-foreground">&copy; {new Date().getFullYear()} thelinkingdots. All rights reserved.</p>
+                <div className="text-center md:text-left">
+                    <p className="text-base text-muted-foreground">&copy; {new Date().getFullYear()} thelinkingdots. All rights reserved.</p>
+                    <p className="text-sm text-muted-foreground">
+                        Built by <a href="https://www.BuiltByAbdullah.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-accent">Abdullah</a>
+                    </p>
+                </div>
                 <div className="flex gap-6">
                     <Link href="#" aria-label="facebook"><Facebook className="h-6 w-6 hover:text-accent transition-colors" /></Link>
                     <Link href="#" aria-label="instagram"><Instagram className="h-6 w-6 hover:text-accent transition-colors" /></Link>
